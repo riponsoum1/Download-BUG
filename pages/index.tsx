@@ -1,13 +1,9 @@
-import Link from "next/link";
-import Layout from "../components/Layout";
+const { ndown } = require("nayan-media-downloader");
 
-const IndexPage = () => (
-  <Layout title="Home | Next.js + TypeScript Example">
-    <h1>Hello Next.js 👋</h1>
-    <p>
-      <Link href="/about">About</Link>
-    </p>
-  </Layout>
-);
-
-export default IndexPage;
+export async function Download() {
+  let URL = await ndown(
+    "https://www.facebook.com/100000959749712/posts/pfbid0288xi44nvodK9d7r3wf4LHeM3dtEsVghQXmz5t59axwz7KdLStYyg4qfvTVrAL27Ll/?app=fbl"
+  );
+  console.log(URL);
+}
+Download();
